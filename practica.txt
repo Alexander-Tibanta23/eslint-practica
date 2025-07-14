@@ -1,0 +1,41 @@
+// 1. Errores de sintaxis básica
+var nombre = "Ana"  // Falta punto y coma y comillas incorrectas
+
+// 2. Uso de var en lugar de let/const
+var edad = 25
+
+// 3. Función mal formateada
+function saludar(){
+console.log('Hola ' + nombre) // Indentación incorrecta y concatenación con +
+}
+
+// 4. Comparación débil (==)
+if (edad == '25') {
+  console.log("Tiene 25 años")  // Comillas dobles
+}
+
+// 5. Array con formato inconsistente
+const frutas = ['manzana','plátano', 'sandía' ]
+
+// 6. Objeto con errores
+const usuario = { 
+  nombre: 'Carlos',
+  edad: 30,  // Coma innecesaria
+}
+
+// 7. Uso de métodos de array incorrecto
+const numeros = [1, 2, 3]
+const dobles = numeros.map(num => { 
+  num * 2  // Falta return
+})
+
+// 8. Variable declarada pero no usada
+const pais = "México"
+
+// 9. Uso de this innecesario
+function mostrarEdad() {
+  console.log(this.edad)  // this sin contexto
+}
+
+// 10. Comentario con TODO (ESLint puede marcarlo)
+// TODO: Implementar función de despedida
