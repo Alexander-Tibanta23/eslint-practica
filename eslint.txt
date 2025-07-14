@@ -1,0 +1,52 @@
+// eslint.config.mjs
+
+import js from '@eslint/js';
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    plugins: {
+      js,
+    },
+    rules: {
+      // Buenas prácticas
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'eqeqeq': ['error', 'always'],
+      'no-console': 'warn',
+
+      // Estilo de código
+      'semi': ['error', 'always'],
+      'quotes': ['error', 'single'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'no-multi-spaces': 'error',
+      'object-curly-spacing': ['error', 'always'],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'space-infix-ops': 'error',
+
+      // Funciones
+      'prefer-arrow-callback': 'error',
+      'func-style': ['error', 'expression'],
+      'no-empty-function': 'warn',
+
+      // Arrays y objetos
+      'array-bracket-spacing': ['error', 'never'],
+      'array-bracket-newline': ['error', { multiline: true }],
+      'object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }],
+
+      // Otros
+      'max-len': ['warn', { code: 80 }],
+    },
+  },
+]);
